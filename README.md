@@ -1,5 +1,5 @@
-# elasticsearch-splitbrain-tester
-General idea is to build a 5-node (in my case) cluster with Vagrant, provision it with Ansible and use as a spitbrain simulator.
+# elasticsearch-splitbrain-simulator
+General idea is to build a 5-node (in my case) ElasticSearch cluster with Vagrant, provision it with Ansible and use as a spitbrain simulator.
 
 ## Usage
 First, spin up the cluster (this example works for macOS):
