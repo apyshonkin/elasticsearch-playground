@@ -1,0 +1,22 @@
+---
+- hosts: elasticsearch 
+  gather_facts: yes
+  become: yes
+
+  vars:
+    swapfile_path: /swap
+
+  pre_tasks:
+    - name: Update apt cache.
+      yum: 
+        update_cache: yes
+
+    - name: create test directory
+      file: 
+        path: /nonexistent
+        state: directory
+
+  roles:
+    - es-provision
+
+  tasks: []

@@ -1,0 +1,30 @@
+---
+- name: Add Elasticsearch repository
+  template:
+    src: elasticsearch.repo.j2
+    dest: /etc/yum.repos.d/elasticsearch.repo
+    mode: 0644
+
+- name: Install Elasticsearch
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - java-1.8.0-openjdk
+    - elasticsearch
+
+- name: Configure Elasticsearch
+  template:
+    src: "{{ item | basename }}.j2"
+    dest: "{{ item }}"
+    owner: root
+    group: elasticsearch
+    mode: 0660
+  with_items:
+    - /etc/elasticsearch/elasticsearch.yml
+
+- name: Start Elasticsearch
+  service:
+    name: elasticsearch
+    state: started
+    enabled: yes
