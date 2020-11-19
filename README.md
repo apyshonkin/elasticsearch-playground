@@ -9,7 +9,7 @@ First, spin up the cluster (this example works for macOS):
 	
 	...(possible reboot for the kernel extensions)...
 	
-	git clone https://github.com/apyshonkin/elasticsearch-splitbrain-tester.git
+	git clone https://github.com/apyshonkin/elasticsearch-splitbrain-simulator.git
 	cd elasticsearch-splitbrain-tester
 	vagrant up
 	
